@@ -16,8 +16,6 @@
         <img src="coffee-logo2.png" alt="logo-coffee" />
         <p>Sintya's Coffee</p>
       </a>
-      <!-- Menu icon -->
-
       <!-- Links -->
       <ul class="navbar">
         <li><a href="#home">Home</a></li>
@@ -26,7 +24,6 @@
         <li><a href="#products">Products</a></li>
         <li><a href="#customers">Customers</a></li>
       </ul>
-
       <!-- icon -->
       <div class="header-icon">
         <i class="bx bx-menu" id="menu-icon"></i>
@@ -232,7 +229,6 @@
     <div class="copyright">
       <p>&#169; CarpoolVenom All Right Reserved</p>
     </div>
-
     <!-- link Javascript -->
     <script src="CoffeeShop.js"></script>
   </body>
