@@ -4,38 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Toko Coffee Shop Sintya</title>
-    <!-- link css -->
     <link rel="stylesheet" href="CoffeeShop.css" />
-    <!-- link Box Icons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
   </head>
   <body>
-    <!-- NAVBAR -->
     <header>
       <a href="#" class="logo">
         <img src="coffee-logo2.png" alt="logo-coffee" />
         <p>Sintya's Coffee</p>
       </a>
-      <!-- Links -->
       <ul class="navbar">
         <li><a href="#home">Home</a></li>
-        <!-- mengarah ke id # -->
         <li><a href="#about">About</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#customers">Customers</a></li>
       </ul>
-      <!-- icon -->
       <div class="header-icon">
         <i class="bx bx-menu" id="menu-icon"></i>
         <i class="bx bx-cart-alt" id="cart"></i>
         <i class="bx bx-search" id="search-icon"></i>
       </div>
-      <!-- search box -->
       <div class="search-box">
         <input type="search" name="" id="" placeholder="Search here..." />
       </div>
     </header>
-    <!-- HOME -->
     <section class="home" id="home">
       <div class="home-text">
         <h1>Start your day <br />with coffee</h1>
@@ -46,7 +38,6 @@
         <img src="coffee-bg.png" alt="" />
       </div>
     </section>
-    <!-- About -->
     <section class="about" id="about">
       <div class="about-img">
         <img src="about-coffee.jfif" alt="" />
@@ -59,12 +50,10 @@
         <a href="#" class="btn">Learn More</a>
       </div>
     </section>
-    <!-- Products -->
     <section class="products" id="products">
       <div class="heading">
         <h2>Our popular products</h2>
       </div>
-      <!-- container -->
       <div class="products-cotainer">
         <div class="box">
           <img src="arabica-coconut.jfif" alt="" />
@@ -132,12 +121,10 @@
         </div>
       </div>
     </section>
-    <!-- customer -->
     <section class="customer" id="customers">
       <div class="heading">
         <h2>Our Customer's</h2>
       </div>
-      <!-- container -->
       <div class="customer-cointainer">
         <div class="box">
           <div class="stars">
@@ -189,7 +176,6 @@
         </div>
       </div>
     </section>
-    <!-- Footer -->
     <section class="footer" id="footer">
       <div class="footer-box">
         <h3>Coffee Shop</h3>
@@ -225,11 +211,9 @@
         </div>
       </div>
     </section>
-    <!-- Copyright -->
     <div class="copyright">
       <p>&#169; CarpoolVenom All Right Reserved</p>
     </div>
-    <!-- link Javascript -->
     <script src="CoffeeShop.js"></script>
   </body>
 </html>
