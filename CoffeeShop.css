@@ -195,7 +195,7 @@ header.shadow {
 .products-cotainer,
 .customer-cointainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto)); /*lebar min dan max*/
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -210,7 +210,7 @@ header.shadow {
 }
 .products-cotainer img {
   width: 100%;
-  height: 250px;
+  height: 350px;
   object-fit: contain;
   object-position: center;
   padding: 20px;
@@ -393,16 +393,18 @@ header.shadow {
     justify-content: center;
     margin: -25px auto; /*margin berada ditengah*/
   }
+
   .products-cotainer {
-    display: flex;
-    flex-wrap: wrap; /* Menggunakan flexbox dan memungkinkan wrap untuk mengatur setiap kotak dalam baris yang sesuai */
-    justify-content: center; /* Mengatur kotak ke posisi tengah */
-    margin: 0 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+    justify-content: center;
+    gap: 2rem;
+    /* padding: 9px; */
+    margin: 10px;
   }
-  .products-cotainer .box {
-    display: flex;
-    flex-basis: calc(100% - 10px); /* Setiap kotak akan memenuhi 50% lebar layar dengan jarak 20px di antara kotak */
-    margin: 10px; /* Memberikan jarak 10px di antara kotak */
+  .products-cotainer .img {
+    width: 100%;
+    height: 150px;
   }
 }
 @media (max-width: 360px) {
@@ -449,14 +451,8 @@ header.shadow {
     font-size: 1.2rem;
   }
   .products-cotainer {
-    display: flex;
-    flex-wrap: wrap; /* Menggunakan flexbox dan memungkinkan wrap untuk mengatur setiap kotak dalam baris yang sesuai */
-    justify-content: center; /* Mengatur kotak ke posisi tengah */
-    margin: 0 5px;
-  }
-  .products-cotainer .box {
-    display: flex;
-    flex-basis: 90%; /* Setiap kotak akan memenuhi 50% lebar layar dengan jarak 20px di antara kotak */
-    margin: 10px; /* Memberikan jarak 10px di antara kotak */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    justify-content: center;
   }
 }
