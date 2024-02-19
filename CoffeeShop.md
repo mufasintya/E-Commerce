@@ -1,458 +1,233 @@
-/* import google font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-* {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-padding-top: 4rem; /*jarak antara tepi atas dari konten*/
-  scroll-behavior: smooth; /*scrolling akan menjadi lebih halus*/
-  list-style: none;
-  text-decoration: none;
-}
-:root {
-  --main-color: #bc9667; /*warna utama*/
-  --second-color: #edeae3; /*warna kadua*/
-  --text-color: #1b1b1b; /*warna teks*/
-  --bg-color: #fff; /*warna background*/
-  /* box shadow */
-  --box-shadow: 2px 2px 10px 4px rgb(14 55 54 /15%);
-}
-section {
-  padding: 50px 100px;
-}
-img {
-  width: 100%;
-}
-body {
-  color: var(--text-color);
-}
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between; /*ruang yang sama di antara elemen*/
-  align-items: center;
-  padding: 18px 100px;
-  transition: 0.5s linear;
-  /* background: var(--text-color); */
-}
-header.shadow {
-  background: var(--text-color);
-  box-shadow: var(--box-shadow);
-}
-.logo {
-  display: flex;
-  flex-direction: column; /*arah flex dalam kolom*/
-  align-items: center; /*logo dan tulisan center*/
-}
-.logo img {
-  width: 50px;
-}
-.logo p {
-  margin-left: 5px;
-  font-size: 13px;
-  color: var(--bg-color);
-}
-.navbar {
-  display: flex; /*menjadi sejajar horizontal dan flexibel*/
-}
-.navbar a {
-  padding: 8px 17px;
-  color: var(--bg-color);
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.navbar a:hover {
-  background: var(--main-color);
-  border-radius: 0.2rem;
-  transition: 0.2s all linear; /* diproses secara mulus dalam waktu 0.2 detik*/
-}
-.header-icon {
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 10000;
-  display: flex;
-  column-gap: 0.8rem;
-}
-.header-icon .bx {
-  color: var(--bg-color);
-}
-.header-icon .bx:hover {
-  color: var(--main-color);
-}
-#menu-icon {
-  color: var(--bg-color);
-  font-size: 24px;
-  z-index: 100001;
-  cursor: pointer; /*kursor berubah menjadi ikon tangan (dapat diklik)*/
-  display: none; /*menjadi tdk terlihat*/
-}
-.search-box {
-  position: absolute;
-  top: -100%; /*menyembunyikan elemen ke atas*/
-  left: 50%;
-  transform: translate(-50%);
-  background: var(--bg-color);
-  width: 100%;
-}
-.search-box input {
-  padding: 15px;
-  border: none; /*menghilangkan border*/
-  outline: none; /*menghilangkan outline*/
-  width: 100%; /*lebar input search*/
-  font-size: 1rem;
-  color: var(--main-color);
-}
-.search-box.active {
-  top: 100%;
-  box-shadow: var(--box-shadow);
-  transition: 0.2s all linear;
-}
-.search-box input::placeholder {
-  font-size: 1rem;
-  font-weight: 500;
-}
-.home {
-  width: 100%;
-  /* min-width: 100vh; */
-  background: url(coffee-bg2.jpg);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, auto)); /*membuat elemen menjadi kolom flexibel*/
-  align-items: center;
-  gap: 1.5rem; /*jarak baris dan kolom dalam grid*/
-  height: 600px;
-}
-.home-img {
-  text-align: center;
-  display: flex;
-  width: 300px;
-  padding-top: 80px;
-}
-.home-text h2 {
-  color: var(--bg-color);
-  font-family: "Tangerine", "cursive";
-}
-.home-text h1 {
-  font-size: 3.4rem;
-  color: var(--main-color);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.home-text p {
-  font-size: 0.938rem;
-  color: var(--bg-color);
-  margin: 0.5rem 0 1.4rem;
-}
-.btn {
-  padding: 10px 40px;
-  border-radius: 0.3rem;
-  background: var(--main-color);
-  color: var(--bg-color);
-  font-weight: 500;
-}
-.btn:hover {
-  background: #816f4d;
-}
-.about {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
-  align-items: start;
-  gap: 1.5rem;
-}
-.about-img img {
-  border-radius: 0.5rem;
-  height: 300px;
-  /* width: 500px; */
-}
-.about-text h2 {
-  font-size: 1.8rem;
-  text-transform: uppercase;
-}
-.about-text p {
-  font-size: 0.938rem;
-  margin: 0.5rem 0 1.1rem;
-}
-.heading {
-  text-align: center;
-}
-.heading h2 {
-  font-size: 1.8rem;
-  text-transform: uppercase;
-}
-.products,
-.customer {
-  padding-top: 0.2rem;
-}
-.products-cotainer,
-.customer-cointainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, auto)); /*lebar min dan max*/
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-.products-cotainer .box {
-  position: relative;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 0.5rem;
-  box-shadow: var(--box-shadow);
-}
-.products-cotainer img {
-  width: 100%;
-  height: 350px;
-  object-fit: contain;
-  object-position: center;
-  padding: 20px;
-  background: #f1f1f1;
-  border-radius: 0.5rem;
-}
-.products-cotainer .box .content {
-  display: flex;
-  text-align: center;
-  justify-content: space-around; /*memberi jarak di tengah"*/
-}
-.products-cotainer .box .content span {
-  padding: 0.2rem 0.6rem;
-  background-color: var(--main-color);
-  border-radius: 0.2rem;
-  font-weight: 500;
-  color: var(--bg-color);
-}
-.products-cotainer .box .content a {
-  padding: 0 1rem;
-  color: var(--text-color);
-  border: 2px solid var(--main-color);
-  border-radius: 0.2rem;
-}
-.products-cotainer .box .content a:hover {
-  color: var(--bg-color);
-  background-color: var(--main-color);
-  transition: 0.2rem all linear;
-}
-.customer-cointainer .box {
-  padding: 8px;
-  border-radius: 1rem;
-  box-shadow: var(--box-shadow);
-  text-align: center;
-}
-.stars .bx {
-  color: var(--main-color);
-}
-.customer-cointainer .box p {
-  font-size: 0.838rem;
-  padding: 5px;
-}
-.customer-cointainer .box h2 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: o.5rem o o.5rem;
-}
-.customer-cointainer .box img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: contain;
-}
-.customer-cointainer .box:hover {
-  background-color: var(--second-color);
-  transition: 0.2rem all linear;
-}
-.footer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
-  gap: 1.5rem;
-  padding-top: 20px;
-  /* background-color: var(--second-color); */
-  box-shadow: var(--box-shadow);
-}
-.footer-box h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.footer-box p {
-  font-size: 0.938rem;
-  margin-bottom: 10px;
-}
-.social {
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem; /*jarak antar padding icon*/
-}
-.social a .bx {
-  font-size: 24px;
-  color: var(--text-color);
-  padding: 10px;
-  background-color: var(--second-color);
-  border-radius: 0.6rem;
-}
-.social a .bx:hover {
-  background: var(--main-color);
-  color: var(--bg-color);
-  transition: 0.2rem all linear;
-}
-.footer-box li a {
-  color: var(--text-color);
-}
-.footer-box li a:hover {
-  color: var(--main-color);
-}
-.contact {
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5rem;
-}
-.contact span {
-  display: flex;
-  align-items: center; /*agar ikon dan tulisan sejajar*/
-}
-.contact i {
-  font-size: 20px; /*ukuran ikon*/
-  margin-right: 1rem;
-}
-.copyright {
-  text-align: center;
-  background: var(--second-color);
-  padding: 20px;
-}
-@media (max-width: 1058px) {
-  header {
-    padding: 16px 60px;
-  }
-  section {
-    padding: 50px 60px;
-  }
-  .home-text h1 {
-    font-size: 2.4rem;
-  }
-}
-@media (max-width: 991px) {
-  header {
-    padding: 16px 4%;
-  }
-  section {
-    padding: 50px 4%;
-  }
-  .home-text h1 {
-    font-size: 2rem;
-  }
-}
-@media (max-width: 768px) {
-  header {
-    padding: 12px 4%;
-  }
-  #menu-icon {
-    display: flex;
-  }
-  .navbar {
-    position: absolute;
-    top: -250px;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    background: var(--second-color);
-    row-gap: 1.4rem;
-    padding: 20px;
-    transition: 0.3s;
-    text-align: center;
-  }
-  .navbar a {
-    columns: var(--text-color);
-  }
-  .navbar a:hover {
-    color: var(--bg-color);
-  }
-  .navbar.active {
-    /*sebelum titik jangan di spasi*/
-    top: 100%;
-  }
-  .about {
-    align-items: center;
-  }
-  .about-img {
-    width: 100%;
-  }
-  .home {
-    height: 700px;
-  }
-  .home-img {
-    display: block;
-    width: 250px;
-    justify-content: center;
-    margin: -25px auto; /*margin berada ditengah*/
-  }
-
-  .products-cotainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
-    justify-content: center;
-    gap: 2rem;
-    /* padding: 9px; */
-    margin: 10px;
-  }
-  .products-cotainer .img {
-    width: 100%;
-    height: 150px;
-  }
-}
-@media (max-width: 360px) {
-  header {
-    padding: 11px 4%;
-  }
-  .logo img {
-    width: 45px;
-  }
-  .home-text {
-    padding-top: 15px;
-  }
-  .home-text h1 {
-    font-size: 1.4rem;
-  }
-  .home-text p {
-    font-size: 0.8rem;
-    font-weight: 300;
-  }
-  .home-img {
-    width: 250px;
-    justify-content: center;
-    margin: 0 auto;
-  }
-  .home {
-    height: 800px;
-  }
-  .about-img {
-    display: flex;
-    text-align: center;
-    order: 2; /*mengatur urutan elemen dari atas*/
-  }
-  .about-img img {
-    width: 100%;
-    height: aut;
-  }
-  .about-text {
-    text-align: center;
-  }
-  .about-text h2 {
-    font-size: 1.2rem;
-  }
-  .heading h2 {
-    font-size: 1.2rem;
-  }
-  .products-cotainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
-    justify-content: center;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Coffee Shop Sintya</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="CoffeeShop.css" />
+    <!-- link Box Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <a href="#" class="logo">
+        <img src="coffee-logo2.png" alt="logo-coffee" />
+        <p>Sintya's Coffee</p>
+      </a>
+      <ul class="navbar">
+        <li><a href="#home">Home</a></li>
+        <!-- mengarah ke id # -->
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#customers">Customers</a></li>
+      </ul>
+      <div class="header-icon">
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <i class="bx bx-cart-alt" id="cart"></i>
+        <i class="bx bx-search" id="search-icon"></i>
+      </div>
+      <!-- search box -->
+      <div class="search-box">
+        <input type="search" name="" id="" placeholder="Search here..." />
+      </div>
+    </header>
+    <!-- HOME -->
+    <section class="home" id="home">
+      <div class="home-text">
+        <h1>Start your day <br />with coffee</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores odio libero iure odit obcaecati a dolorem reiciendis optio ex ipsa?</p>
+        <a href="#" class="btn">Shop Now</a>
+      </div>
+      <div class="home-img">
+        <img src="coffee-bg.png" alt="" />
+      </div>
+    </section>
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="about-coffee.jfif" alt="" />
+      </div>
+      <div class="about-text">
+        <h2>Our History</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis sunt amet maiores ratione iste facilis quo eius, mollitia similique voluptatibus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis sunt amet maiores ratione iste facilis quo eius, mollitia similique voluptatibus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis sunt amet maiores ratione iste facilis quo eius, mollitia similique voluptatibus.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </section>
+    <!-- Products -->
+    <section class="products" id="products">
+      <div class="heading">
+        <h2>Our popular products</h2>
+      </div>
+      <!-- container -->
+      <div class="products-cotainer">
+        <div class="box">
+          <img src="arabica-coconut.jfif" alt="" />
+          <h3>Arabica Coconut</h3>
+          <div class="content">
+            <span>30.000</span>
+            <a href="">Add to cart</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="arabica-mocha.jfif" alt="" />
+          <h3>Arabica Mocha</h3>
+          <div class="content">
+            <span>40.000</span>
+            <a href="">Add to cart</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="arabica-lash-brew.jfif" alt="" />
+          <h3>Arabica Lash Brew</h3>
+          <div class="content">
+            <span>50.000</span>
+            <a href="">Add to cart</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="arabica-matcha.jfif" alt="" />
+          <h3>Arabica Matcha</h3>
+          <div class="content">
+            <span>20.000</span>
+            <a href="">Add to cart</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="milk-tea.jfif" alt="" />
+          <h3>Milk Tea Coffee</h3>
+          <div class="content">
+            <span>20.000</span>
+            <a href="">Add to cart</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="cold-brew.jfif" alt="" />
+          <h3>Cold Brew Coffee</h3>
+          <div class="content">
+            <span>20.000</span>
+            <a href="">Add to cart</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="salted-caramel.jfif" alt="" />
+          <h3>Salted Caramel</h3>
+          <div class="content">
+            <span>20.000</span>
+            <a href="">Add to cart</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="bread-salt.jfif" alt="" />
+          <h3>Bread Salt Coffee</h3>
+          <div class="content">
+            <span>20.000</span>
+            <a href="">Add to cart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- customer -->
+    <section class="customer" id="customers">
+      <div class="heading">
+        <h2>Our Customer's</h2>
+      </div>
+      <!-- container -->
+      <div class="customer-cointainer">
+        <div class="box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ad saepe</p>
+          <h2>Mufarikhatus Sintya</h2>
+          <img src="profil1.jfif" alt="" />
+        </div>
+        <div class="box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ad saepe iste eligendi ipsam accusantium eos repellendus!</p>
+          <h2>Mufarikhatus Sintya</h2>
+          <img src="profil2.jfif" alt="" />
+        </div>
+        <div class="box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star-half"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ad saepe iste eligendi ipsam accusantium eos repellendus!</p>
+          <h2>Mufarikhatus Sintya</h2>
+          <img src="profil3.jfif" alt="" />
+        </div>
+        <div class="box">
+          <div class="stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ad saepe iste eligendi ipsam accusantium eos repellendus!</p>
+          <h2>Mufarikhatus Sintya</h2>
+          <img src="profil4.jfif" alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <section class="footer" id="footer">
+      <div class="footer-box">
+        <h3>Coffee Shop</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nemo eaque consequuntur?</p>
+        <div class="social">
+          <a href=""><i class="bx bxl-twitter"></i> </a>
+          <a href=""><i class="bx bxl-instagram"></i> </a>
+          <a href=""><i class="bx bxl-facebook"></i> </a>
+          <a href=""><i class="bx bxl-tiktok"></i> </a>
+        </div>
+      </div>
+      <div class="footer-box">
+        <h3>Support</h3>
+        <li><a href="#">Product</a></li>
+        <li><a href="#">Help & Support</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">Term Of Use</a></li>
+        <li><a href="#">Products</a></li>
+      </div>
+      <div class="footer-box">
+        <h3>View Guides</h3>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog Posts</a></li>
+        <li><a href="#">Our Branches</a></li>
+      </div>
+      <div class="footer-box">
+        <h3>Contact</h3>
+        <div class="contact">
+          <span><i class="bx bx-map"></i>Jepara</span>
+          <span><i class="bx bx-phone"></i>+62 89-507-111-682</span>
+          <span><i class="bx bx-envelope"></i>mufasintya@gmail.com</span>
+        </div>
+      </div>
+    </section>
+    <!-- Copyright -->
+    <div class="copyright">
+      <p>&#169; CarpoolVenom All Right Reserved</p>
+    </div>
+    <!-- link Javascript -->
+    <script src="CoffeeShop.js"></script>
+  </body>
+</html>
